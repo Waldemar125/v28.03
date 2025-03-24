@@ -1,0 +1,10 @@
+n = 7 ** 170 + 7 ** 100
+for x in range(2031):
+    s = n - x
+    k = 0
+    while s > 0:
+        if s % 7 == 0:
+            k += 1
+        s //= 7
+    if k == 71:
+        print(x)
