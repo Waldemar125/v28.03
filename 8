@@ -1,0 +1,9 @@
+from itertools import product
+s = product('012345678', repeat=7)
+k = 0
+for x in s:
+    x = ''.join(x)
+    if x[0] not in '01357':
+        if x[-1] not in '036' and '6' in x:
+            k += 1
+print(k)
