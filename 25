@@ -1,0 +1,23 @@
+def f(n):
+    mx, mn = 0, 0
+    for d in range(2, n):
+        if n % d == 0:
+            mn = d
+            break
+    for d in range(n - 1, 1, -1):
+        if n % d == 0:
+            mx = d
+            break
+    if mx == mn:
+        return 0
+    return mx + mn
+
+
+k = 0
+for n in range(900000, 10 ** 10):
+    m = f(n)
+    if m % 1000 == 112:
+        print(n, m)
+        k += 1
+    if k == 5:
+        break
