@@ -1,0 +1,39 @@
+def f19(a, p):
+    if 20 <= a <= 26 and p == 3: return True
+    elif a > 26: return False
+    if 20 <= a <= 26 and p == 2: return False
+    elif a > 26: return True
+    if a < 20 and p == 3: return False
+    if p % 2 == 0:
+        return f(a + 4, p + 1) or f(a * 2, p + 1)
+    else:
+        return f(a + 4, p + 1) and f(a * 2, p + 1)
+
+
+def f20(a, p):
+    if 20 <= a <= 26 and p == 4: return True
+    elif a > 26: return False
+    if 20 <= a <= 26 and p == 3: return False
+    elif a > 26: return True
+    if a < 20 and p == 4: return False
+    if p % 2 != 0:
+        return f(a + 4, p + 1) or f(a * 2, p + 1)
+    else:
+        return f(a + 4, p + 1) and f(a * 2, p + 1)
+
+
+def f21(a, p):
+    if 20 <= a <= 26 and (p == 3 or p == 5): return True
+    elif a > 26: return False
+    if 20 <= a <= 26 and (p == 2 or p == 4): return False
+    elif a > 26: return True
+    if a < 20 and p == 5: return False
+    if p % 2 == 0:
+        return f(a + 4, p + 1) or f(a * 2, p + 1)
+    else:
+        return f(a + 4, p + 1) and f(a * 2, p + 1)
+
+
+for s in range(1, 20):
+    if f(s, 1):
+        print(s)
